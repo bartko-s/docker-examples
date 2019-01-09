@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  redis:
+    image: redis:5
+    ports:
+      - 6379:6379
+    volumes:
+      - type: volume
+        source: redis-5-data
+        target: /data
+    networks:
+      - shared-network
+
+volumes:
+  redis-5-data:
+
+networks:
+  shared-network:
+    external: true

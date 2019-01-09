@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  arangodb.3.3:
+    image: arangodb:3.3
+    ports:
+      - 8529:8529
+    env_file:
+      - variables.env
+    volumes:
+      - type: volume
+        source: arangodb-3-data
+        target: /var/lib/arangodb3
+      - type: volume
+        source: arangodb-3-apps-data
+        target: /var/lib/arangodb3-apps
+    networks:
+      - shared-network
+
+volumes:
+  arangodb-3-data:
+  arangodb-3-apps-data:
+
+networks:
+  shared-network:
+    external: true

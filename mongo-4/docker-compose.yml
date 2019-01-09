@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  mongo:
+    image: mongo:4
+    ports:
+      - 27017:27017
+    env_file:
+      - variables.env
+    volumes:
+      - type: volume
+        source: mongo-4-data
+        target: /data/db
+    networks:
+      - shared-network
+
+volumes:
+  mongo-4-data:
+
+networks:
+  shared-network:
+    external: true

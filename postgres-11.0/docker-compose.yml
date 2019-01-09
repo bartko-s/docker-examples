@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  postgres11:
+    image: postgres:11.0
+    ports:
+      - 5432:5432
+    env_file:
+      - variables.env
+    volumes:
+      - type: volume
+        source: postgres-11.0-data
+        target: /var/lib/postgresql/data
+    networks:
+      - shared-network
+
+volumes:
+  postgres-11.0-data:
+
+networks:
+  shared-network:
+    external: true

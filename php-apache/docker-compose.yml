@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  php:
+    build: docker
+    expose:
+      - 9000
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - .:/var/www/src/
+#    networks:
+#      - shared-network
+#    external_links:
+#      - postgres:postgres
+#
+#networks:
+#  shared-network:
+#    external: true

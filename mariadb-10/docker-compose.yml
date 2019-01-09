@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  mariadb:
+    image: mariadb:10
+    ports:
+      - 3306:3306
+    env_file:
+      - variables.env
+    volumes:
+      - type: volume
+        source: mariadb-10-data
+        target: /var/lib/mysql
+    networks:
+      - shared-network
+
+volumes:
+  mariadb-10-data:
+
+networks:
+  shared-network:
+    external: true
