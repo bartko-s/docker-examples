@@ -1,4 +1,4 @@
-FROM php:7.2.11-apache
+FROM php:7.3.4-apache
 
 RUN usermod -u 1000 www-data
 
@@ -25,7 +25,8 @@ RUN apt-get install -y libpq-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo_pgsql pgsql
 
-RUN docker-php-ext-install zip
+RUN  apt-get install libzip-dev -y \
+    && docker-php-ext-install zip
 
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
