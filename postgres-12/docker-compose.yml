@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  postgres11:
+  postgres:
     build: docker/postgres
     ports:
       - 5432:5432
@@ -8,13 +8,13 @@ services:
       - variables.env
     volumes:
       - type: volume
-        source: postgres-11.0-data
+        source: postgres-12-data
         target: /var/lib/postgresql/data
     networks:
       - shared-network
 
 volumes:
-  postgres-11.0-data:
+  postgres-12-data:
 
 networks:
   shared-network:
