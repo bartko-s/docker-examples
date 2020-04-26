@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   rabbitmq:
-    image: rabbitmq:3.7-management
+    image: rabbitmq:3.8-management
     ports:
       - 5672:5672
       - 25672:25672
@@ -10,8 +10,8 @@ services:
       - variables.env
     volumes:
       - type: volume
-        source: rabbitmq-3.7-data
+        source: rabbitmq-3.8-data
         target: /var/lib/rabbitmq
 
 volumes:
-  rabbitmq-3.7-data:
+  rabbitmq-3.8-data:
