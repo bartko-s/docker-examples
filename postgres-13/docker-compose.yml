@@ -8,13 +8,13 @@ services:
       - variables.env
     volumes:
       - type: volume
-        source: postgres-12-data
+        source: postgres-13-data
         target: /var/lib/postgresql/data
     networks:
       - shared-network
 
 volumes:
-  postgres-12-data:
+  postgres-13-data:
 
 networks:
   shared-network:
