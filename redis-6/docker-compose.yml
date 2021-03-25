@@ -1,18 +1,18 @@
 version: '3.7'
 services:
   redis:
-    image: redis:5
+    image: redis:6
     ports:
       - 6379:6379
     volumes:
       - type: volume
-        source: redis-5-data
+        source: redis-6-data
         target: /data
     networks:
       - shared-network
 
 volumes:
-  redis-5-data:
+  redis-6-data:
 
 networks:
   shared-network:
